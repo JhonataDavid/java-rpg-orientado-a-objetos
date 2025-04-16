@@ -1,16 +1,17 @@
 package rpg.armamentos;
 
-public class ArcoEFlecha extends Armamento{
-    public ArcoEFlecha(){
+public class ArcoEFlecha extends Armamento {
+    public ArcoEFlecha() {
         this.nome = "Arco de bambu";
-        this.dano = 10;
+        this.dano = 15;
     }
 
     public String getNome() {
         return nome;
     }
+
     @Override
-    public void ataqueEspecial(){
+    public void ataqueEspecial() {
         this.dano += 70;
     }
 }

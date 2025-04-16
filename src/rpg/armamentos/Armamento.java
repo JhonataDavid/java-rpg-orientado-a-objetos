@@ -13,6 +13,14 @@ public abstract class Armamento{
         return nome;
     }
 
+    public int getDano() {
+        return dano;
+    }
+
+    public void setDano(int dano) {
+        this.dano = dano;
+    }
+
     public void ataqueEspecial(){
 
     }

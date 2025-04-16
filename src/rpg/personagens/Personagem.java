@@ -1,11 +1,12 @@
 package rpg.personagens;
 
 import rpg.armamentos.Armamento;
+import rpg.combates.Combate;
 
-public abstract class Personagem {
+public abstract class Personagem implements Combate {
     protected String nome;
     private int life;
-    private int level;
+    protected int level;
     private int xp;
     protected Armamento armamento;
 
@@ -38,6 +39,51 @@ public abstract class Personagem {
 
     public void setXp(int xp) {
         this.xp = xp;
+    }
+
+    public Armamento getArmamento() {
+        return armamento;
+    }
+
+    public void setArmamento(Armamento armamento) {
+        this.armamento = armamento;
+    }
+
+    @Override
+    public void atacar(Personagem personagemAtacado) {
+        personagemAtacado.life -= armamento.getDano();
+        System.out.println("O " + personagemAtacado.getNome() + " foi atacado com " + armamento.getDano() + "de dano");
+        System.out.println("Seu nivel atual de vida é de: " + personagemAtacado.getLife());
+
+    }
+
+    @Override
+    public void defender(Personagem personagemAtacado) {
+        int danoReduzido = armamento.getDano() / 2; // Reduz o dano pela metade ao defender
+        personagemAtacado.life -= danoReduzido;
+        System.out.println(personagemAtacado.getNome() + " defendeu o ataque! Sofreu " + danoReduzido + " de dano.");
+        System.out.println("Vida atual: " + personagemAtacado.getLife());
+    }
+
+    @Override
+    public void ganhar() {
+
+    }
+
+    @Override
+    public void perder() {
+    }
+
+    @Override
+    public void versus(Personagem desafiante, Personagem desafiado) {
+        while (desafiante.life > 0 && desafiado.life > 0){
+            if (desafiante.level > desafiado.level) {
+                desafiante.atacar(desafiado);
+            } else if (desafiado.level > desafiante.level) {
+                desafiado.defender(desafiado);
+                System.out.println("O " + desafiado.getNome() + " defendeu o ataque do " + desafiante.getNome());
+            }
+        }
     }
 
     public void status() {
