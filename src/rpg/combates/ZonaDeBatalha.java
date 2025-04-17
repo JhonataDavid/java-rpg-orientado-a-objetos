@@ -3,6 +3,7 @@ package rpg.combates;
 import rpg.armamentos.ArcoEFlecha;
 import rpg.armamentos.Armamento;
 import rpg.armamentos.Machado;
+import rpg.personagens.Arqueiro;
 import rpg.personagens.Lenhador;
 import rpg.personagens.Mago;
 import rpg.personagens.Personagem;
@@ -17,13 +18,13 @@ public class ZonaDeBatalha {
         Mago mago = new Mago(flecha);
         Lenhador lenhador = new Lenhador(machado);
 
-        lenhador.status();
-        mago.status();
+        Personagem personagem1 = new Lenhador(machado);
 
-        Personagem personagem1 = new Mago(flecha);
-        Personagem personagem2 = new Lenhador(machado);
+        var arcoEFlecha = new ArcoEFlecha();
+        var arqueiro = new Arqueiro(arcoEFlecha);
 
-        personagem1.versus(mago, lenhador);
+
+        Personagem.versus(arqueiro, lenhador);
 
     }
 }

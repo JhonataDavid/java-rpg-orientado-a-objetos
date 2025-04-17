@@ -74,8 +74,7 @@ public abstract class Personagem implements Combate {
     public void perder() {
     }
 
-    @Override
-    public void versus(Personagem desafiante, Personagem desafiado) {
+    public static void versus(Personagem desafiante, Personagem desafiado) {
         while (desafiante.life > 0 && desafiado.life > 0){
             if (desafiante.level > desafiado.level) {
                 desafiante.atacar(desafiado);

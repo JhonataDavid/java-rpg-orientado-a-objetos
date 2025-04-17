@@ -11,5 +11,4 @@ public interface Combate {
 
     void perder();
 
-    void versus(Personagem p1, Personagem p2);
 }
